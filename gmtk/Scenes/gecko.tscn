@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://vbonyx1ljyb7"]
+
+[ext_resource type="Texture2D" uid="uid://c3jju87wmik5w" path="res://icon.svg" id="1_cqm5b"]
+[ext_resource type="Script" path="res://Scenes/gecko.gd" id="1_ha75w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gxvm"]
+radius = 11.0
+height = 48.0
+
+[node name="Gecko" type="CharacterBody2D"]
+script = ExtResource("1_ha75w")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.231257, 0.810925, 0.499238, 1)
+scale = Vector2(0.186523, 0.400391)
+texture = ExtResource("1_cqm5b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3gxvm")
