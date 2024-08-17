@@ -5,6 +5,8 @@ var SPEED = 100.0
 
 signal actionPressed
 
+signal shed
+
 var ClimbState = true
 var ShootState = false
 var climbable = false
@@ -12,9 +14,11 @@ var climbable = false
 func _process(delta):
 	$GunPivotPoint.look_at(get_global_mouse_position())
 	
-	if ShootState == true:
-		if Input.is_action_just_pressed("action"):
-			emit_signal("actionPressed")
+	if Input.is_action_just_pressed("action"):
+		emit_signal("actionPressed" , get_global_mouse_position())
+			
+	if Input.is_action_just_pressed("shed"):
+		emit_signal("shed")
 		
 	if Input.is_action_just_pressed("switch_mode"):
 		if ClimbState == true:

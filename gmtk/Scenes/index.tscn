@@ -154,3 +154,4 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [connection signal="actionPressed" from="Gecko" to="." method="_on_gecko_action_pressed"]
+[connection signal="shed" from="Gecko" to="." method="_on_gecko_shed"]

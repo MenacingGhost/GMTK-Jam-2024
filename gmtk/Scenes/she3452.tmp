@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://1bimsid7f8gj"]
+
+[ext_resource type="Script" path="res://Scenes/shedded_skin.gd" id="1_58g7h"]
+[ext_resource type="Texture2D" uid="uid://c3jju87wmik5w" path="res://icon.svg" id="1_goye1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v2jlf"]
+height = 50.0
+
+[node name="Shedded Skin" type="CharacterBody2D"]
+script = ExtResource("1_58g7h")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.694597, 0.18365, 0, 1)
+scale = Vector2(0.186523, 0.400391)
+texture = ExtResource("1_goye1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_v2jlf")
