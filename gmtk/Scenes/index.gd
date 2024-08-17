@@ -10,4 +10,13 @@ func _process(delta):
 	else:
 		$Gecko.climbable = false
 		
-		
+
+func _on_gecko_action_pressed():
+	spawn_bullet()
+	
+func spawn_bullet():
+	const BULLET = preload("res://Scenes/bullet.tscn")
+	var new_bullet = BULLET.instantiate()
+	new_bullet.global_position = $Gecko/GunPivotPoint/Gun.global_position
+	new_bullet.rotation = $Gecko/GunPivotPoint.rotation
+	add_child(new_bullet)

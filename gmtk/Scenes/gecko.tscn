@@ -17,3 +17,12 @@ texture = ExtResource("1_cqm5b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_3gxvm")
+
+[node name="GunPivotPoint" type="Node2D" parent="."]
+
+[node name="Gun" type="Sprite2D" parent="GunPivotPoint"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(22, 0)
+scale = Vector2(0.125, 0.0488281)
+texture = ExtResource("1_cqm5b")
