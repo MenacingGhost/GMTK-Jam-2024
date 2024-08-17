@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://vbonyx1ljyb7"]
+[gd_scene load_steps=6 format=3 uid="uid://vbonyx1ljyb7"]
 
 [ext_resource type="Texture2D" uid="uid://c3jju87wmik5w" path="res://icon.svg" id="1_cqm5b"]
 [ext_resource type="Script" path="res://Scenes/gecko.gd" id="1_ha75w"]
@@ -7,6 +7,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gxvm"]
 radius = 11.0
 height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tvgbi"]
+radius = 7.0
+height = 28.0
 
 [node name="Gecko" type="CharacterBody2D"]
 script = ExtResource("1_ha75w")
@@ -30,3 +34,18 @@ texture = ExtResource("1_cqm5b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_3gxvm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -24)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tvgbi")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
