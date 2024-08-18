@@ -30,7 +30,6 @@ radius = 5.0
 height = 10.0
 
 [node name="energy" type="Area2D"]
-collision_layer = 2
 script = ExtResource("1_blhp5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -42,4 +41,4 @@ speed_scale = 0.3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nsp4y")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

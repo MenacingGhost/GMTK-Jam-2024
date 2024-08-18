@@ -60,4 +60,3 @@ func spawn_energy():
 
 func _on_timer_2_timeout():
 	spawn_energy()
-	$Rocks.get_data(source_id , rock_atlas , $Mecha.global_position , Vector2.ZERO)
