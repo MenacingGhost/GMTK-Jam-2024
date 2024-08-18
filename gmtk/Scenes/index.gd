@@ -4,23 +4,27 @@ extends Node2D
 
 @export var noise_height_text : NoiseTexture2D
 var noise : Noise
-var width : int = 400
-var height : int = 400
+var width : int = 200
+var height : int = 2000
 var source_id = 3
 var rock_atlas = Vector2i(9,3)
+var vine_atlas = Vector2i(0,13)
 
 func _ready():
+	randomize()
 	noise = noise_height_text.noise
+	noise.seed = randi()
 	generate_world()
 	
 func generate_world():
 	for x in range(-width/2 , width/2):
-		for y in range(-height , height):
+		for y in range(-height , 0):
 			var noise_val : float = noise.get_noise_2d(x,y)
-			if noise_val >= 0.0 :
+			if noise_val >= -0.1 :
 				tile_map.set_cell(Vector2(x,y) , source_id , rock_atlas)
-			elif noise_val < 0.0 :
-				pass
+				if noise_val >= 0.2 :
+					$Vines.set_cell(Vector2(x,y) , source_id , vine_atlas)
+
 				
 func _process(delta):
 	var clicked_cell = tile_map.local_to_map($Mecha.global_position)

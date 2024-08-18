@@ -37,5 +37,5 @@ shape = SubResource("CapsuleShape2D_nsp4y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wu03n")
 animation = &"new_animation"
-frame_progress = 0.330954
+frame_progress = 0.315125
 speed_scale = 0.3

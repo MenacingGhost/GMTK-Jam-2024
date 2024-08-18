@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 
-var SPEED = 100.0
+var SPEED = 300.0
+var JUMP_VELOCITY = -500.0
 var HP = 3
 var STAMINA = 100
 
@@ -32,11 +33,15 @@ func _process(delta):
 		elif ClimbState == false:
 			ClimbState = true
 			ShootState = false
-			SPEED = 100.0
+			SPEED = 300.0
 			$GunPivotPoint/Gun.hide()
 			$Timer.start()
 	
 func _physics_process(delta):
+	
+	if Input.is_action_just_pressed("jump") and STAMINA >= 50:
+		velocity.y = JUMP_VELOCITY
+		STAMINA -= 50
 	
 	if climbable == true and STAMINA > 0:
 		var direction = Input.get_vector("left", "right" , "up" , "down")
@@ -45,6 +50,7 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.y = move_toward(velocity.y, 0, SPEED)
+			
 	if climbable == false or STAMINA <= 0:
 		velocity += get_gravity() * delta
 
