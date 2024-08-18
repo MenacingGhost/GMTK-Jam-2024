@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://vbonyx1ljyb7"]
+[gd_scene load_steps=5 format=3 uid="uid://vbonyx1ljyb7"]
 
 [ext_resource type="Texture2D" uid="uid://c3jju87wmik5w" path="res://icon.svg" id="1_cqm5b"]
-[ext_resource type="Script" path="res://Scenes/gecko.gd" id="1_ha75w"]
-[ext_resource type="PackedScene" uid="uid://b6tostdx66mm3" path="res://Scenes/tounge.tscn" id="3_j5vjh"]
+[ext_resource type="Script" path="res://Scenes/mecha.gd" id="1_ha75w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gxvm"]
 radius = 11.0
@@ -12,7 +11,7 @@ height = 48.0
 radius = 7.0
 height = 28.0
 
-[node name="Gecko" type="CharacterBody2D"]
+[node name="Mecha" type="CharacterBody2D"]
 script = ExtResource("1_ha75w")
 
 [node name="GunPivotPoint" type="Node2D" parent="."]
@@ -23,9 +22,6 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(22, 0)
 scale = Vector2(0.125, 0.0488281)
 texture = ExtResource("1_cqm5b")
-
-[node name="Tounge" parent="." instance=ExtResource("3_j5vjh")]
-position = Vector2(0, -28)
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(0.231257, 0.810925, 0.499238, 1)

@@ -3,10 +3,9 @@ extends CharacterBody2D
 
 var SPEED = 100.0
 var HP = 3
-var STAMINA = 10
+var STAMINA = 100
 
 signal actionPressed
-
 signal shed
 
 var ClimbState = true
@@ -18,11 +17,11 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("action"):
 		emit_signal("actionPressed" , get_global_mouse_position())
+		print("click")
 			
-	if Input.is_action_just_pressed("shed"):
-		emit_signal("shed")
 		
 	if Input.is_action_just_pressed("switch_mode"):
+		print("swirch")
 		if ClimbState == true:
 			ClimbState = false
 			ShootState = true

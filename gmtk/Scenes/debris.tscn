@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://djyhvi4ocfrdq"]
+
+[ext_resource type="Texture2D" uid="uid://cfxwjiwxb846m" path="res://Assets/Art/abandonauts_assets/rocks.png" id="1_ki1qp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kvq68"]
+radius = 14.0
+height = 28.0
+
+[node name="Debris" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4.339, 4.5)
+texture = ExtResource("1_ki1qp")
+region_enabled = true
+region_rect = Rect2(6, 0, 6, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kvq68")
