@@ -7,7 +7,6 @@ var HP = 3
 var STAMINA = 100
 
 signal actionPressed
-signal shed
 
 var ClimbState = true
 var ShootState = false
@@ -62,7 +61,6 @@ func _on_timer_timeout():
 	STAMINA -= 1
 	print(STAMINA)
 
-
-func _on_area_2d_body_entered(body):
-	STAMINA += 5
+func _on_area_2d_area_entered(area):
+	STAMINA += 15
 	print("+STAMNIA")

@@ -3,8 +3,6 @@
 [ext_resource type="Script" path="res://Scenes/energy.gd" id="1_blhp5"]
 [ext_resource type="Texture2D" uid="uid://co6idqgpxncta" path="res://Assets/Art/abandonauts_assets/powerlight.png" id="2_tceft"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nsp4y"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvo0q"]
 atlas = ExtResource("2_tceft")
 region = Rect2(0, 0, 8, 8)
@@ -27,15 +25,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="energy" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nsp4y"]
+radius = 5.0
+height = 10.0
+
+[node name="energy" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_blhp5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_nsp4y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wu03n")
 animation = &"new_animation"
 frame_progress = 0.315125
 speed_scale = 0.3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_nsp4y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
